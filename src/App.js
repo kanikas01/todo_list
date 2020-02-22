@@ -81,7 +81,11 @@ function App() {
     if (isConfirmed) {
       const data = await deleteTodo({
         variables: { id: id },
-        refetchQueries: [{ query: GET_TODOS }]
+        update: cache => {
+          const prevData = cache.readQuery({ query: GET_TODOS });
+          const newTodos = prevData.todos.filter(todo => todo.id !== id);
+          cache.writeQuery({ query: GET_TODOS, data: { todos: newTodos } });
+        }
       });
       console.log("deleted todo", data);
     }
