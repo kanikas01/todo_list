@@ -96,13 +96,18 @@ function App() {
 
   return (
     <div className="vh-100 code flex flex-column items-center bg-dark-blue white pa3 fl-1">
-      <h1 className="f2-l">GraphQL Checklist</h1>
+      <h1 className="f2-l">
+        GraphQL Checklist{" "}
+        <span role="img" aria-label="Checkmark">
+          ✅
+        </span>
+      </h1>
       <h5 className="tc mt0 fl w-50">
         (Doubleclick on an item to cross it off, or click the '&times;' to
         remove it.)
       </h5>
       {/* Todo Form */}
-      <form className="mb3">
+      <form onSubmit={handleAddTodo} className="mb3">
         <input
           className="pa2 f4 b--dashed"
           type="text"
@@ -110,14 +115,10 @@ function App() {
           onChange={event => setTodoText(event.target.value)}
           value={todoText}
         />
+        <button className="pa2 f4 bg-green" type="submit">
+          Create
+        </button>
       </form>
-      <button
-        onClick={handleAddTodo}
-        className="pa2 f4 bg-green mt2"
-        type="submit"
-      >
-        Create
-      </button>
       {/* Todo List */}
       <div className="flex items-center justify-center flex-column">
         {data.todos.map(todo => (
