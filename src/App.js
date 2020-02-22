@@ -44,7 +44,9 @@ function App() {
   const [todoText, setTodoText] = React.useState("");
   const { data, loading, error } = useQuery(GET_TODOS);
   const [toggleTodo] = useMutation(TOGGLE_TODO);
-  const [addTodo] = useMutation(ADD_TODO);
+  const [addTodo] = useMutation(ADD_TODO, {
+    onCompleted: () => setTodoText("")
+  });
 
   async function handleToggleTodo({ id, done }) {
     const data = await toggleTodo({ variables: { id: id, done: !done } });
@@ -54,9 +56,11 @@ function App() {
   async function handleAddTodo(event) {
     event.preventDefault();
     if (!todoText.trim()) return;
-    const data = await addTodo({ variables: { text: todoText } });
+    const data = await addTodo({
+      variables: { text: todoText },
+      refetchQueries: [{ query: GET_TODOS }]
+    });
     console.log("added todo", data);
-    setTodoText("");
   }
 
   if (loading) return <div>Loading todos...</div>;
