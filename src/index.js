@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
+import "./styles.css";
 
 const client = new ApolloClient({
-  uri: 'https://todo-react-graphql.herokuapp.com/v1/graphql'
+  uri: "https://todo-react-graphql.herokuapp.com/v1/graphql"
 });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
