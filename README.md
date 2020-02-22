@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Todo List
+
+This is a simple todo list built using [React](https://reactjs.org/), [GraphQL](https://graphql.org/) and [Apollo](https://www.apollographql.com/), and styled using [Tachyons](http://tachyons.io/). The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
