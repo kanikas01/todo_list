@@ -60,6 +60,8 @@ function App() {
     onCompleted: () => setTodoText("")
   });
   const [deleteTodo] = useMutation(DELETE_TODO);
+  const bodyStyling =
+    "vh-100 code flex flex-column items-center bg-dark-blue white pa3 fl-1";
 
   async function handleToggleTodo({ id, done }) {
     const data = await toggleTodo({ variables: { id: id, done: !done } });
@@ -91,11 +93,11 @@ function App() {
     }
   }
 
-  if (loading) return <div>Loading todos...</div>;
-  if (error) return <div>Error fetching todos!</div>;
+  if (loading) return <div className={bodyStyling}>Loading todos...</div>;
+  if (error) return <div className={bodyStyling}>Error fetching todos!</div>;
 
   return (
-    <div className="vh-100 code flex flex-column items-center bg-dark-blue white pa3 fl-1">
+    <div className={bodyStyling}>
       <h1 className="f2-l">
         GraphQL Checklist{" "}
         <span role="img" aria-label="Checkmark">
