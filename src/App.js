@@ -93,7 +93,18 @@ function App() {
     }
   }
 
-  if (loading) return <div className={bodyStyling}>Loading todos...</div>;
+  if (loading)
+    return (
+      <div className={bodyStyling}>
+        Loading todos...
+        <p className="fl w-50">
+          The database for this app uses free heroku hosting, and will go to
+          sleep after an hour of inactivity. Thus, if the app hasn't been
+          visited recently then it can take a few moments for the DB to wake up
+          and send the todo list info. Thank you for your patience!
+        </p>
+      </div>
+    );
   if (error) return <div className={bodyStyling}>Error fetching todos!</div>;
 
   return (
@@ -106,7 +117,7 @@ function App() {
       </h1>
       <h5 className="tc mt0 fl w-50">
         (Doubleclick on an item to cross it off, or click the '&times;' to
-        remove it.)
+        remove it)
       </h5>
       {/* Todo Form */}
       <form onSubmit={handleAddTodo} className="mb3">
