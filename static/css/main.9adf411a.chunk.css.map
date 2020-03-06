@@ -1,1 +1,0 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,EACE,qBAAsB,CACtB,wBAAyB,CACzB,oBAAqB,CACrB,gBACF","file":"main.9adf411a.chunk.css","sourcesContent":["p {\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}"]}
